@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <title>goblockchain_wb</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Minha Carteira</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Tokens
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="FundoICO.html">Fundo do token</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <br>
+        <h3>
+            <p>Fundo de reserva Token</p>
+        </h3>
+        <br>
+
+        <div class="card">
+            <h5 class="card-header">Consultar</h5>
+
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="enderecoContratoFundo"  value="0x9A4b3A87df7f4C510314c5f67AB49A4284fF30C3" placeholder="Endereço Contrato">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btnConsultarFundo" onclick="carregarFundo()">Consultar</button>
+                </div>
+
+                <div class="form-group row">
+                    <label for="responsavel" class="col-sm-2 col-form-label">Saldo</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="saldo" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nome" class="col-sm-2 col-form-label">Responsável</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="responsavel" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <h5 class="card-header">Eventos</h5>
+
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="compras" class="col-sm-2 col-form-label">Compras</label>
+                    <div class="col-sm-10">
+                        <input type="text" readonly class="form-control-plaintext" id="compras" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="card">
+            <h5 class="card-header">Encerrar contrato</h5>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="col-4">
+                        <button type="button" class="btn btn-danger" id="btnEncerrar">Encerrar</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-12">
+                        <input type="text" readonly class="form-control-plaintext" id="eventoEmail" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="footer">
+            <p>♥ GoBlockchain</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <!-- web3 -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <!--bootstrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!--js-->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/FundoICO.js"></script>
+</body>
+
+</html>
