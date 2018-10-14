@@ -1,5 +1,5 @@
-# eth_dapp_floripa
-Projeto utilizado em curso de Florianópolis. 
+# eth_dapp
+Projeto utilizado em curso de dapp ethereum. 
 
 ### Instalar aplicação
 - cd goblockchain_wb
