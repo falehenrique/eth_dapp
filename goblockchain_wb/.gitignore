@@ -4,3 +4,6 @@ dist
 bower_components
 test/bower_components
 .DS_Store
+truffle/node_modules
+truffle/build
+.DS_Store

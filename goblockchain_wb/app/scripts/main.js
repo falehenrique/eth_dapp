@@ -2,19 +2,19 @@
 // projeto https://github.com/ethereum/web3.js
 //documentação https://github.com/ethereum/wiki/wiki/JavaScript-API
 
-//geth --rpc --rpcaddr "localhost" --rpcport "8545" --rpcapi "web3,eth,net,personal" --rpccorsdomain "*" --datadir "./private"
+//geth --dev --rpc --rpcaddr "localhost" --rpcport "8545" --rpcapi "web3,eth,net,personal" --rpccorsdomain "*" --datadir "./private"
 
 //load
 window.addEventListener('load', function() {
-    // conexaoURL();
+    //conexaoURL();
     conexaoMetamask();
     checkWeb3();
     carregarToken();
 });
 
 function conexaoURL() {
-    // var urlNode = 'http://127.0.0.1:7545';
-    var urlNode = 'http://localhost:8080';
+    var urlNode = 'http://127.0.0.1:7545';
+    // var urlNode = 'http://localhost:8080';
     window.web3 = new Web3(new Web3.providers.HttpProvider(urlNode));
 }
 
