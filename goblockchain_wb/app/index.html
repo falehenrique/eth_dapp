@@ -21,8 +21,8 @@
           <a class="nav-link active" href="#">Minha Carteira</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             Tokens
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -121,7 +121,6 @@
         <div class="form-row">
           <div class="col-10 mb-2">
             <div class="alert alert-success" role="alert" id="labelResultSendEther"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -131,20 +130,25 @@
       <h5 class="card-header">Meu token</h5>
 
       <div class="card-body">
-        <div class="form-row">
-          <div class="col-3">
+        <div class="row">
+          <div class="col-6">
+            <span>Quantidade:</span>
             <input type="text" readonly class="form-control" id="quantidade" value="0">
           </div>
-          <div class="col-3">
-              <input type="text" readonly class="form-control" id="valorToken" value="0">
-            </div>          
+          <div class="col-6">
+            <span>Valor to token:</span>
+            <input type="text" readonly class="form-control" id="valorToken" value="0">
+          </div>
+        </div>
+        <br>
+        <div class="row">
           <div class="col-4">
             <input type="text" class="form-control" id="quantidadeComprar" placeholder="Quantidade">
           </div>
           <button type="button" class="btn btn-primary" id="btnBalance" onclick="comprarTokens()">Comprar</button>
         </div>
         <br>
-        <div class="form-row">
+        <div class="row">
           <div class="col-4">
             <input type="text" class="form-control" id="quantidadeTransferir" placeholder="Quantidade">
           </div>
@@ -163,7 +167,7 @@
             <input type="text" class="form-control" id="enderecoPessoa" placeholder="Endereço da Conta">
           </div>
           <button type="button" class="btn btn-primary" id="btnTransferir" onclick="consultarTokens();">Consultar</button>
-        </div>        
+        </div>
 
 
       </div>
