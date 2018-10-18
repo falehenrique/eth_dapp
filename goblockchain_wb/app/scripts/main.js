@@ -7,8 +7,8 @@
 //load
 window.addEventListener('load', function() {
     //abrir conexao
-    // conexaoURL();
-    conexaoMetamask();
+    conexaoURL();
+    // conexaoMetamask();
 
     checkWeb3();
 
@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 
 function conexaoURL() {
     //
-    var urlNode = "http://localhost:8080";
+    var urlNode = "HTTP://127.0.0.1:7545";
     window.web3 = new Web3(new Web3.providers.HttpProvider(urlNode));
 }
 
@@ -69,12 +69,27 @@ function checkNodeStatus()  {
                     $("#nodes").text(result);
                 }                
             });
+            listAccounts();
         }
     })
 }
 
 function listAccounts() {
-    //
+    web3.eth.getAccounts(function(error, result) {
+        if(error){
+            console.info('accounts ' + error);
+        } else {
+            var accounts = result;
+            $('#sizeAccounts').text(result.length);
+
+            var accounts_ul = $("#accounts_ul");
+            accounts_ul.empty;
+
+            for (var i = 0;  i < accounts.length; i++) {
+                accounts_ul.append('<li>' + result[i] + "</li>");
+            }
+        }
+    });
 }
 
 $("#btnBalance").click(function() {
