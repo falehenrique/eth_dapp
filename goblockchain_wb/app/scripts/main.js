@@ -94,6 +94,15 @@ function listAccounts() {
 
 $("#btnBalance").click(function() {
     //
+    var account = $("#account").val();
+    console.info(account);
+    web3.eth.getBalance(account, function(error, result) {
+        if(error) {
+            console.error(error);
+        } else {
+            $("#accountBalance").val(web3.fromWei(result, 'ether').toFixed(2));
+        }
+    });
 })
 
 
