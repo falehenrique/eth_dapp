@@ -33,7 +33,7 @@ function checkWeb3(){
         checkNodeStatus();
     } else {
         console.info('Not Connected');
-        $('#no_status').text("Desconectado");
+         
     }
 }
 
@@ -92,7 +92,7 @@ function listAccounts() {
 
 $("#btnBalance").click(function() {
     var account = $("#account").val();
-    web3.eth.getBalance(account, web3.eth.defaultBlock, function(error, result) {
+    web3.eth.getBalance(account, function(error, result) {
         if(error){
             console.error('getBalance ' + error);
         } else {
