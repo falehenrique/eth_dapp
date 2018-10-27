@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <title>goblockchain_wb</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Minha Carteira</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Tokens
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="FundoICO.html">Fundo do token</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Mesada Pai
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Pai.html">Pai</a>
+                            <a class="dropdown-item" href="Filho.html">Filho</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Exemplo Mesada</h1>
+                <p class="lead">Esse exemplo apresenta como podemos trabalhar entre contratos e enviar ether/tokens
+                    entre eles.</p>
+            </div>
+        </div>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Nome">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="idade">Idade</label>
+                    <input type="text" class="form-control" id="idade" placeholder="Idade">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary">Cadastrar</button>
+
+            <h3 class="mt-3">Dados</h3>
+            <div class="form-group">
+                <label for="inputAddress">Transação</label>
+                <input type="text" class="form-control" id="inputAddress" readonly placeholder="0X..">
+            </div>
+
+            <div class="form-group">
+                <label for="nomeConsulta">Nome</label>
+                <input type="text" class="form-control" id="nomeConsulta" readonly placeholder="..">
+            </div>
+            <div class="form-group">
+                <label for="idadeConsulta">Idade</label>
+                <input type="text" class="form-control" id="idadeConsulta" readonly placeholder="..">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Informar email:</label>
+                <input type="email" class="form-control" id="email" placeholder="xxx@xxx.com">
+            </div>
+            <button type="button" class="btn btn-success">Cadastrar</button>
+
+            <h3 class="mt-3">Dados Filho</h3>
+
+            <div class="form-group">
+                <label for="nomeConsulta">Nome</label>
+                <input type="text" class="form-control" id="nomeFilho" placeholder="..">
+            </div>
+            <div class="form-group">
+                <label for="enderecoWallet">Endereço Wallet</label>
+                <input type="text" class="form-control" id="enderecoWallet" placeholder="0x">
+            </div>
+
+            <button type="button" class="btn btn-info">Cadastrar Filho</button>
+
+            <h5 class="mt-3">Consultar Filho</h5>
+
+            <div class="form-group">
+                <label for="nomeConsulta">Endereço Contrato</label>
+                <input type="text" class="form-control" id="endereContrato" placeholder="0x">
+            </div>
+
+            <button type="button" class="btn btn-light">Consultar</button>
+
+
+            <h4 class="mt-3">Enviar Mesada</h4>
+
+            <div class="form-group">
+                <label for="nomeConsulta">Valor</label>
+                <input type="number" class="form-control" id="endereContrato" placeholder="00">
+            </div>
+
+            <button type="button" class="btn btn-warning">Enviar</button>
+            <br>
+
+            <div class="alert alert-success mb-5 mt-5" role="alert" style="padding-top: 15px;">
+                <h4 class="alert-heading">Alertas!</h4>
+                <p>Todos os alertas entre os contratos devem aparecer aqui.</p>
+                <hr>
+                <p class="mb-0">........</p>
+            </div>
+            <!-- <div class="card">
+                <button type="Excluir Contrato" class="btn btn-danger">Excluir Contrato</button>
+            </div> -->
+
+        </form>
+        <br>
+        <footer>
+            <p>♥ GoBlockchain</p>
+        </footer>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="scripts/pessoa.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
