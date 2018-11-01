@@ -7,8 +7,8 @@ import "./DonoContrato.sol";
 contract PessoaPai is DonoContrato {
 
     uint public idade;
-    string nome;
-    string email;
+    string public nome;
+    string public email;
 
     InterfaceFilhoContrato[] public filhoContrato;
     
