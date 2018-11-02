@@ -7,8 +7,8 @@
 //load
 window.addEventListener('load', function() {
     //abrir conexao
-    conexaoURL();
-    // conexaoMetamask();
+    // conexaoURL();
+    conexaoMetamask();
 
     checkWeb3();
 
@@ -146,3 +146,4 @@ function comprarTokens() {
 
 
 // web3.eth.getTransactionReceipt(hash [, callback])
+
