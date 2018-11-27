@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 
 function conexaoURL() {
     //
-    var urlNode = "HTTP://127.0.0.1:7545";
+    var urlNode = "http://localhost:8545";
     window.web3 = new Web3(new Web3.providers.HttpProvider(urlNode));
 }
 
@@ -107,8 +107,24 @@ $("#btnBalance").click(function() {
 
 
 $("#btnSendEther").click(function() {
-    //
+    var from = $("#from").val();
+    var to = $("#to").val();
+    var value = $("#valueToSend").val();
+
+    var transacao = {
+        "from": from,
+        "to" : to,
+        "value" : web3.toWei(value, "ether"),
+        "gas" : 30000
+    }
+
+    web3.eth.sendTransaction(transacao, function (error, result) {
+        console.info(result);
+       $("#labelResultSendEther").text(result);
+    });
 })
+
+
 
 $("#btnTransaction").click(function() {
     var transacao = $("#transaction").val();
