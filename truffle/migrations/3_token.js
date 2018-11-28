@@ -1,5 +1,5 @@
-var TokenERC20 = artifacts.require("./token/StandardTokenERC20.sol");
+var MeuToken = artifacts.require("./token/MeuToken.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(TokenERC20);
+  deployer.deploy(MeuToken);
 };
