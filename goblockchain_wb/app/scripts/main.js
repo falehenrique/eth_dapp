@@ -428,17 +428,12 @@ function carregarToken() {
     var instance = carregarInstanciaToken();
 
     instance.totalSupply(function(error, result){
-        console.info(result);
-    });
     
-    instance.balanceOf("0x87487e9a02A4f5d7Bd8861A27cFc9B36f3F4aa30", function(error, result){
-        console.info(result);
+        $("#totalSupply").text(result)
     });
 
     web3.eth.getAccounts(function (error, result) {
-
       instance.balanceOf(result, function (error, saldo) {
-        
         instance.symbol(function (error, symbol) {
             $("#quantidade").val(symbol + " " + saldo)
         })
