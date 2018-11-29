@@ -23,7 +23,6 @@ contract MeuToken is StandardToken {
         require((_qtd * tokenPrice) >= msg.value, "Valor enviado maior que o valor solicitado");
         require(balances[owner] >= _qtd, "Balanço de saldo precisa ser maior que a quantidade");
 
-
         balances[owner] = balances[owner].sub(_qtd);
         balances[msg.sender] = balances[msg.sender].add(_qtd);
         emit Transfer(owner, msg.sender, _qtd);

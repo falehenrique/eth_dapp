@@ -435,6 +435,17 @@ function carregarToken() {
         console.info(result);
     });
 
+    web3.eth.getAccounts(function (error, result) {
+
+      instance.balanceOf(result, function (error, saldo) {
+        
+        instance.symbol(function (error, symbol) {
+            $("#quantidade").val(symbol + " " + saldo)
+        })
+
+      });
+
+    });
 }
 
 function transferirTokens() {
