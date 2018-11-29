@@ -135,7 +135,7 @@ $("#btnTransaction").click(function() {
 })
 
 // var endereco
-var enderecoToken = "0x302cc5951d651248616b7efa70af0e0ba3b80378";
+var enderecoToken = "0x89ab266f827804de28805f0cb79587cbcdb8cc17";
 var abiToken =  [
     {
       "constant": true,
@@ -419,6 +419,7 @@ var abiToken =  [
 function carregarInstanciaToken() {
     
     var tokenContrato = web3.eth.contract(abiToken);
+
     var TokenInstance = tokenContrato.at(enderecoToken);
 
     return TokenInstance;
@@ -433,16 +434,20 @@ function carregarToken() {
 
     instance.name(function(error, result){
       $("#nomeToken").text(result)
-    });    
+    });
+
+    instance.name(function(error, result){
+      $("#valorToken").tokenPrice(result)
+    });      
+
+    instance.symbol(function (error, symbol) {
+      $("#simbol").text(symbol);
+    })    
 
     web3.eth.getAccounts(function (error, result) {
       instance.balanceOf(result, function (error, saldo) {
-        instance.symbol(function (error, symbol) {
-            $("#quantidade").val(symbol + " " + saldo)
-        })
-
+          $("#meuSaldo").text(saldo)
       });
-
     });
 }
 

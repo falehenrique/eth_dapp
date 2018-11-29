@@ -157,7 +157,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label>Simbolo:</label>
-                        <span id="valorToken">xxx</span>
+                        <span id="simbol">xxx</span>
                     </div>                                          
                     <div class="form-group col-md-6">
                         <label>Valor do token:</label>
@@ -165,7 +165,7 @@
                     </div>    
                     <div class="form-group col-md-4">
                         <label>Meu saldo:</label>
-                        <span id="valorToken">xxx</span>
+                        <span id="meuSaldo">xxx</span>
                     </div>                                      
                 </div>                  
                 <div class="form-row">
@@ -188,15 +188,13 @@
                 <br>
                 <div class="form-row">
                     <div class="col-4">
-                        <input type="text" class="form-control" id="quantidadePessoa" placeholder="Quantidade">
-                    </div>
-                    <div class="col-4">
                         <input type="text" class="form-control" id="enderecoPessoa" placeholder="Endereço da Conta">
                     </div>
                     <button type="button" class="btn btn-primary" id="btnTransferir" onclick="consultarTokens();">Consultar</button>
+                    <div class="col-12 mt-3">
+                        <label>Quantidade: <span id="quantidadePessoa"></span></label>
+                    </div>                    
                 </div>
-
-
             </div>
         </div>
         <br>

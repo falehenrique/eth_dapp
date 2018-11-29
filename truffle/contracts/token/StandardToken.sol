@@ -1,9 +1,10 @@
 pragma solidity ^0.4.24;
 
+import "./Ownable.sol";
 import "./SafeMath.sol";
 import "./InterfaceERC20.sol";
 
-contract StandardToken is InterfaceERC20 {
+contract StandardToken is InterfaceERC20, Ownable {
     using SafeMath for uint256;
     mapping(address => uint256) balances;
     mapping (address => mapping (address => uint256)) internal allowed;

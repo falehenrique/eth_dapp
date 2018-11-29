@@ -10,7 +10,7 @@ contract MeuToken is StandardToken {
 
     address public owner = msg.sender;
 
-    uint256 tokenPrice = 1;
+    uint256 public tokenPrice = 1;
 
     constructor() public {
         totalSupply_ = INITIAL_SUPPLY;
@@ -28,8 +28,7 @@ contract MeuToken is StandardToken {
         emit Transfer(owner, msg.sender, _qtd);
     }
 
-    function changePrice(uint256 _tokenPrice) public {
-        require(owner == msg.sender, "Apenar dono do contrato pode alterar o valor");
+    function changePrice(uint256 _tokenPrice) public onlyOwner {
         tokenPrice = _tokenPrice;
     }
 }
