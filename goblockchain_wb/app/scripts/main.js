@@ -428,9 +428,12 @@ function carregarToken() {
     var instance = carregarInstanciaToken();
 
     instance.totalSupply(function(error, result){
-    
         $("#totalSupply").text(result)
     });
+
+    instance.name(function(error, result){
+      $("#nomeToken").text(result)
+    });    
 
     web3.eth.getAccounts(function (error, result) {
       instance.balanceOf(result, function (error, saldo) {
