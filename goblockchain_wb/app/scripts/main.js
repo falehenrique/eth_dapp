@@ -501,7 +501,7 @@ function comprarTokens() {
     var valorToken = $("#valorToken").text();
 
     var transacao = {
-      value : quantidadeComprar * valorToken,
+      value : quantidadeComprar * 1,
       gas: "400000",
       data: "GBC"
     }
@@ -510,6 +510,14 @@ function comprarTokens() {
     instance.salesToken.sendTransaction(quantidadeComprar, transacao, function(error, result) {
       console.info(result);
     });  
+}
+
+function kill() {
+  var instance = carregarInstanciaToken();
+
+  instance.kill.sendTransaction(function(error, result) {
+    console.info(result);
+  });
 }
 
 

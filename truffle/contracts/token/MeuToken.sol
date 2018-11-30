@@ -8,8 +8,6 @@ contract MeuToken is StandardToken {
     uint256 public constant decimals = 2;
     uint256 public INITIAL_SUPPLY = 500 * (10 ** decimals);
 
-    address public owner = msg.sender;
-
     uint256 public tokenPrice = 1;
 
     constructor() public {
@@ -25,6 +23,9 @@ contract MeuToken is StandardToken {
 
         balances[owner] = balances[owner].sub(_qtd);
         balances[msg.sender] = balances[msg.sender].add(_qtd);
+
+        address(owner).transfer(msg.value);
+
         emit Transfer(owner, msg.sender, _qtd);
     }
 
