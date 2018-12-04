@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Local front-end Libraries -->
+    <script src="scripts/jquery.min.js"></script>
+    <!-- loading the minified version -->
+    <script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+
+    <script src="scripts/orbitdb.min.js"></script>
+    <script src="scripts/bootstrap.min.js?body=1"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const node = new Ipfs({
+        start: true,
+        EXPERIMENTAL: {
+            pubsub: true,
+        }
+    })
+
+    node.on('ready', async () => {
+        const version = await node.version()
+        console.log('Version:', version.version)
+
+        const id = await node.id()
+        console.log('id:', id)
+
+        const filesAdded = await node.files.add({
+            path: 'hello.txt',
+            content: node.types.Buffer.from('ABC')
+        })
+
+        console.log('Added file:', filesAdded[0].path, filesAdded[0].hash)
+
+
+                // Create the database.
+                orbitdb = new OrbitDB(node);
+                db = await orbitdb.open("teste", {
+                    // If database doesn't exist, create it
+                    create: true,
+                    overwrite: true,
+                    // Load only the local version of the database,
+                    // don't load the latest from the network yet
+                    localOnly: false,
+                    type: 'keyvalue',
+                    write: ['*'],
+                });
+
+
+                db.events.on('ready', () => {
+                    console.log(`Database is ready!`)
+                })
+
+                // Load the latest local copy of the DB.
+                await db.load();
+
+                // Signal that the DB is ready for use.
+                dbReady = true;
+
+                db.events.on('replicated', (address) => {
+                    console.log(`DB just replicated with peer ${address}. Re-processing orders...`);
+                })
+
+                // Filter out the current order.
+                const newOrders = {name: "henrique", hash:filesAdded[0].hash};
+
+                // Update the database.
+                await db.put("banco", newOrders);
+
+                // Get all orders associated with this user.
+                const orders = db.get("banco");
+                console.info(orders);
+
+    })
+</script>

@@ -6,5 +6,8 @@
   "devDependencies": {
     "browser-sync": "^2.2.1",
     "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "orbit-db": "^0.19.9"
   }
 }

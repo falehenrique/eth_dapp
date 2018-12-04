@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./img/favicon.ico" />
+    <title>goblockchain_wb</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Minha Carteira</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Tokens
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="FundoICO.html">Fundo do token</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Mesada Pai
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Pai.html">Pai</a>
+                            <a class="dropdown-item" href="Filho.html">Filho</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Museu
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Museu.html">Cadastrar</a>
+                            <a class="dropdown-item" href="Doar.html">Doar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Museu</h1>
+                <p class="lead">Exemplo de um museu com IPFS + ORBIT + ERC20.</p>
+            </div>
+        </div>
+        <form>
+
+            <div class="form-row">
+                <h1>Museu: GBC</h1>
+            </div>
+            <h5>Endereço da conta corrente: <span id="enderecoConta"></span></h5>            
+            <h5>Saldo em Ether: <span id="saldoMuseu"></span></h5>
+
+            <div class="form-row mt-5">
+                <div class="form-group col-md-6">
+                    <div class="form-group">
+                        <label for="nome">Nome da obra</label>
+                        <input type="text" class="form-control" id="_nomeObra" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="idade">Descrição</label>
+                        <textarea rows="4" id="_descricao" class="form-control" cols="50">
+
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-group">
+                        <label for="nome">Foto</label>
+                        <input class="form-control" type="file" />
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="adicionarObjeto();">Cadastrar</button>
+            <div class="form-row mt-5">
+                <div class="form-group col-md-6">
+                    <label for="enderecoPai">Nome da obra</label>
+                    <input type="text" class="form-control" id="_nomeObra" placeholder="..">
+                </div>
+                <button type="button" class="btn btn-info" onclick="consultarObra();">Consultar</button>
+
+                <div class="form-group col-md-12">
+                    <label for="nomeConsulta">Nome</label>
+                    <input type="text" class="form-control" id="nomeConsulta" readonly placeholder="..">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="descricaoConsulta">Descrição</label>
+                    <textarea rows="4" id="descricaoConsulta" class="form-control" readonly cols="50"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="idadeConsulta">Foto</label>
+                    <div id="foto"></div>
+                </div>
+            </div>
+            <div class="form-row mt-5">
+                <h2>Objetos</h2>
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Foto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="alert alert-success mb-5 mt-5" role="alert" style="padding-top: 15px;">
+                <h4 class="alert-heading">Alertas!</h4>
+                <p>Todos os alertas entre os contratos devem aparecer aqui.</p>
+                <hr>
+                <p class="mb-0" id="evento">........</p>
+            </div>
+
+        </form>
+        <br>
+        <footer>
+            <p>♥ GoBlockchain</p>
+        </footer>
+    </div>
+
+
+    <!-- Local front-end Libraries -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/index.min.js"></script>
+    <script src="scripts/orbitdb.min.js"></script>
+    <script src="scripts/bootstrap.min.js?body=1"></script>
+    <script src="scripts/museu.js"></script>
+    <!-- loading the minified version -->
+    <!-- <script src="https://unpkg.com/ipfs-http-client/dist/index.min.js"></script> -->
+
+    <!-- <script src="scripts/museu.js"></script> -->
+</body>
+
+</html>
