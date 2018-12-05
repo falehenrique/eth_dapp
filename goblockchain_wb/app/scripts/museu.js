@@ -21,7 +21,9 @@ const config = {
     }
   }
 }
-
+/**
+ * Cria conexão com o IPFS e cria banco de dados no orbit
+ */
 function openOrbit() {
   return new Promise(function(resolve, reject) {
     try {
@@ -38,7 +40,7 @@ function openOrbit() {
         }
 
         // Load the DB.
-        db = await orbitdb.keyvalue('Museu02', access)
+        db = await orbitdb.keyvalue('Museu03', access)
         await db.load()
         dbConectado = true
 
@@ -50,12 +52,13 @@ function openOrbit() {
           console.log(`Databse replicated. Check for new prices.`)
         })
 
-        console.info("vai tentar conectar em outra base de dados");
-        const store = await orbitdb.keyvalue("/orbitdb/QmXxQuwmuRERejs71t6P8QFr2h6M553RikwUsLX38xyBuA/teste")
-        await store.load()
-      
+        // console.info("vai tentar conectar em outra base de dados");
+        // const store = await orbitdb.keyvalue("/orbitdb/QmarhXWgqJhK4bukipU9AbE3AEeD3cGhaMwU95BbFUs6qL/teste123")
+        // await store.load()
+        
+        
         // console.log(store.get(hash))  
-        console.info(store);
+        // console.info(store);
 
         return resolve(db);
       })
@@ -84,15 +87,14 @@ async function adicionarObjeto() {
   
     if(!dbValido){
       return;
-    } 
+    }
+
     const objeto = {
       nome: _nome,
       descricao: _descricao,
       foto: _foto,
-      peer: idDB
+      museu: idDB
     }
-
-    let peers = db.get('peers')
 
     let objetos = db.get(idDB);
 
@@ -117,7 +119,7 @@ async function consultarObra() {
     _listaObjetos.forEach(function(objeto){
         console.info(objeto.nome);
         console.info(objeto.descricao);
-        console.info(objeto.peer);
+        console.info(objeto.museu);
     });
 
   } catch(err) {
@@ -134,31 +136,64 @@ async function verificarDB() {
   }
 
   // Get the list of peers
-  let peers = db.get('peers')
+  let peers = db.get('museus')
 
   // Handle a new DB.
   if(!peers) {
     peers = [idDB]
-    await db.put('peers', peers);
+    await db.put('museus', peers);
 
   } else {
     if(peers.indexOf(idDB) === -1) {
       peers.push(idDB);
-      await db.put('peers', peers);
+      await db.put('museus', peers);
     }
   }
 
   const dbMuseu = db.get(idDB);
   if(!dbMuseu) {
-    // Create an empty array to store this users orders.
+    // cria objeto vazio
     await db.put(idDB, []);
+    console.info("Vai criar a conta corrente do museu");
   }  
-
   return true;
 }
 
+if ($("#enderecoConta").text() == "") {
+  criarContaCorrente();
+}
+
+function upload() {
+  const reader = new FileReader();
+  reader.onloadend = function() {
+    const buf = buffer.Buffer(reader.result) // converter image to buffer
+    ipfs.files.add(buf, (err, result) => {
+      if(err) {
+        console.error(err)
+        return
+      }
+      let url = `https://ipfs.io/ipfs/${result[0].hash}`
+      console.log(`Url --> ${url}`)
+    })
+  }
+  const photo = document.getElementById("foto");
+  reader.readAsArrayBuffer(photo.files[0]); // Read Provided File
+}
+
 function criarCarteira() {
-
-
   
 }
+
+// const uport = new window.uportconnect('Aula GBC 3', {network: 'rinkeby'})
+
+// uport.requestDisclosure({
+//   requested: ['name','country', 'address'],
+//   notifications: true
+// })
+
+
+// uport.onResponse('disclosureReq').then(response => {
+//   // const address = payload.address
+//   console.info(response.payload.name);
+//   console.info(response.payload.country);
+// })

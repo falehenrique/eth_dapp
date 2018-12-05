@@ -59,7 +59,7 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Museu</h1>
-                <p class="lead">Exemplo de um museu com IPFS + ORBIT + ERC20.</p>
+                <p class="lead">Exemplo de um museu com uPort + IPFS + ORBIT + Ethereum.</p>
             </div>
         </div>
         <form>
@@ -67,7 +67,7 @@
             <div class="form-row">
                 <h1>Museu: GBC</h1>
             </div>
-            <h5>Endereço da conta corrente: <span id="enderecoConta"></span></h5>            
+            <h5>Endereço da conta corrente: <span id="enderecoConta"></span></h5>
             <h5>Saldo em Ether: <span id="saldoMuseu"></span></h5>
 
             <div class="form-row mt-5">
@@ -84,10 +84,15 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <div class="form-group">
-                        <label for="nome">Foto</label>
-                        <input class="form-control" type="file" />
-                    </div>
+                    <form action="/">
+                        <div class="form-group">
+                            <label for="nome">Foto</label>
+
+                            <input type="file" class="form-control" name="foto" id="foto">
+                            <button type="button" onclick="upload()">Adicionar Imagem</button>
+
+                        </div>
+                    </form>
                 </div>
             </div>
             <button type="button" class="btn btn-primary" onclick="adicionarObjeto();">Cadastrar</button>
@@ -146,7 +151,13 @@
     <script src="scripts/index.min.js"></script>
     <script src="scripts/orbitdb.min.js"></script>
     <script src="scripts/bootstrap.min.js?body=1"></script>
+    <script src="https://unpkg.com/uport-connect/dist/uport-connect.js"></script>
+    <script src="scripts/buffer.js"></script>
+    <script src="scripts/contaCorrenteMuseu.js"></script>
     <script src="scripts/museu.js"></script>
+
+    <!-- <script src="https://wzrd.in/standalone/buffer"></script> -->
+
     <!-- loading the minified version -->
     <!-- <script src="https://unpkg.com/ipfs-http-client/dist/index.min.js"></script> -->
 
